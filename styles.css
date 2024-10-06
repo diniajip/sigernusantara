@@ -1,0 +1,117 @@
+/* Style all of font in pages */
+* {
+    font-family: "Tahoma", sans-serif;
+}
+
+/* Style the header 1 */
+.header h1 {
+    right: 80px;
+    z-index: 1;
+    font-size: 40px;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Style the header 2 */
+.header h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Style all of the images */
+.container image {
+    border: 1px solid black;
+}
+
+/* Style all of the paragraph outside container */
+.information p {
+    text-align: center;
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 18;
+}
+
+/* Style all of the paragraph in container */
+.container p {
+    text-align: center;
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 18;
+}
+
+/*Style all of the footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 90%
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    min-height: 200px;
+}
+
+#map {
+    width: 100%;
+    min-height: 200px;
+    margin: 0 auto;
+    display: block;
+}
+
+* {
+    font-family: "Tahoma", sans-serif;
+}
+
+.custom-table {
+    width: 100%;
+    margin: 0 auto;
+    display: table;
+}
+
+.custom-table td,
+.custom-table th {
+    padding: 20px;
+}
+
+.galery img {
+    width: 70%;
+    height: auto;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+@media (max-width: 600px) {
+    .galery img {
+        width: 100%;
+        height: auto;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .header h2 {
+        font-size: 1.5em;
+    }
+
+    .body {
+        font-size: 0.8em;
+    }
+}
+
+.p2,
+.galery img {
+    display: block;
+    width: 100%;
+}

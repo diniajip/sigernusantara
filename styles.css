@@ -59,6 +59,7 @@
     padding: 20px;
     text-align: center;
     min-height: 200px;
+    overflow-x: auto;
 }
 
 #map {

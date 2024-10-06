@@ -2,117 +2,59 @@
 <html lang="id">
 
     <head>
-        <meta charset="UTF-8">
+        <!-- Ensure look nice on many devices-->
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ragam Budaya Nusantara dan Kaitannya dengan IPA</title>
+        <!-- Load Bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- Load Map-->
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <!-- Load CSS-->
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+        <!-- Load Leaflet, Papa Parse, and Javascript-->
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-        <style>
-            .container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                padding: 20px;
-                text-align: center;
-                min-height: 200px;
-            }
-
-            #map {
-                width: 100%;
-                height: 100%;
-                margin: 0 auto;
-                display: block;
-            }
-
-            * {
-                font-family: "Tahoma", sans-serif;
-            }
-
-            .header h1 {
-                right: 80px;
-                z-index: 1;
-                font-size: 40px;
-                padding: 20px;
-                text-align: center;
-                font-weight: bold;
-                text-decoration: underline;
-            }
-
-            .custom-table {
-                width: 100%;
-                margin: 0 auto;
-                display: table;
-            }
-
-            .custom-table td,
-            .custom-table th {
-                padding: 20px;
-            }
-
-        </style>
+        <script src="../javascript.js"></script>
+        <!-- Title-->
+        <title>Ragam Budaya Nusantara dan Kaitannya dengan IPA</title>
     </head>
 
     <body>
         <div class="header">
-            <h1>Ragam Budaya Nusantara dan kaitannya dengan IPA</h1>
+            <h1>Ragam Budaya Nusantara dan Kaitannya dengan IPA</h1>
+            <h2> by Dini Aji Pangestuti</h2>
             <hr>
         </div>
 
-        <div class="container">
-            <div id="map" style="height: 500px;"></div>
-            <table id="table"></table>
+        <main>
+            <div class="information">
+                <p>
+                    Petunjuk: Klik marker untuk menampilkan kaitan budaya dan IPA
+                </p>
+                <hr>
+            </div>
 
-            <script>
-                Papa.parse("../identifikasi.csv", {
-                    download: true,
-                    header: true,
-                    complete: function(results) {
-                        var map = L.map('map').setView([-2.5, 117], 5);
-                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            <div class="container">
+                <div id="map" style="height: 500px;"></div>
 
-                        results.data.forEach(function(row) {
-                            if (row.Koordinat) {
-                                var coords = row.Koordinat.split(',');
-                                var lat = parseFloat(coords[0]);
-                                var lng = parseFloat(coords[1]);
-                                var marker = L.marker([lat, lng]).addTo(map);
-                                marker.on('click', function() {
-                                    console.log('Marker clicked');
-                                    var table = document.getElementById('table');
-                                    table.innerHTML = ''; // Clear previous table content
+                <div class="galery">
+                    <div class="header">
+                        <h2></h2>
+                        <table id="table"></table>
+                        <hr>
+                        <p1></p1>
+                        <p2></p2>
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <hr>
 
-                                    // Create header row
-                                    table.classList.add('table', 'table-stripped', 'custom-table')
-                                    var headerRow = document.createElement('tr');
-                                    var columns = ['Kategori IPA', 'Konsep IPA', 'Warisan Budaya', 'Kategori Budaya', 'Kabupaten/Kota', 'Provinsi'];
+                <footer>
 
-                                    columns.forEach(function(column) {
-                                        var th = document.createElement('th');
-                                        th.textContent = column;
-                                        headerRow.appendChild(th);
-                                    });
-
-                                    table.appendChild(headerRow);
-
-                                    // Create data row
-                                    var tr = document.createElement('tr');
-                                    columns.forEach(function(column) {
-                                        var td = document.createElement('td');
-                                        td.textContent = row[column];
-                                        tr.appendChild(td);
-                                    });
-
-                                    table.appendChild(tr);
-                                });
-                            }
-                        });
-                    }
-                });
-            </script>
-        </div>
-    </body>
+                </footer>
+            </div>
+        </main>
+    </div>
+</body>
 
 </html>

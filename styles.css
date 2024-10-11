@@ -15,21 +15,25 @@
 }
 
 /* Style the header 2 */
-.header h2 {
+.gallery .header h2 {
     text-align: center;
     font-weight: bold;
-    font-size: 0px;
+    font-size: 24px;
     padding: 10px;
     margin: 10px;
 }
 
-/* Style all of the images */
-.container image {
-    border: 1px solid black;
+/* Style table*/
+#table {
+    text-align: center;
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 18;
+    overflow-x: auto;
 }
 
-/* Style all of the paragraph outside container */
-.information p {
+/* Style all of the paragraph outside information session */
+.notes p {
     text-align: center;
     padding: 10px 20px;
     margin: 20px;
@@ -37,11 +41,16 @@
 }
 
 /* Style all of the paragraph in container */
-.container p {
-    text-align: center;
+.container-label p {
+    text-align: justify;
     padding: 10px 20px;
     margin: 20px;
     font-size: 18;
+    overflow-x: auto;
+}
+
+.label {
+    page-break-inside: avoid;
 }
 
 /*Style all of the footer */
@@ -51,68 +60,89 @@
     font-size: 90%
 }
 
+/* Ensure the container is responsive */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-    min-height: 200px;
-    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* Ensure the map is responsive */
+.map-container {
+    width: 100%;
+    height: auto;
+    padding: 0 15px;
+    margin: 0 auto;
 }
 
 #map {
     width: 100%;
-    min-height: 200px;
-    margin: 0 auto;
-    display: block;
+    height: 400px;
 }
 
-* {
-    font-family: "Tahoma", sans-serif;
-}
-
-.custom-table {
+/* Ensure the table is responsive */
+#table {
     width: 100%;
-    margin: 0 auto;
-    display: table;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-size: 18px;
     overflow-x: auto;
 }
 
-.custom-table td,
-.custom-table th {
-    padding: 20px;
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
-.galery img {
-    width: 70%;
-    height: auto;
-    padding: 20px;
-    margin: 20px;
-}
-
-@media (max-width: 600px) {
-    .galery img {
-        width: 100%;
-        height: auto;
-    }
-
-    .container {
-        padding: 10px;
-    }
-
-    .header h2 {
-        font-size: 1.5em;
-    }
-
-    .body {
-        font-size: 0.8em;
-    }
-}
-
-.p2,
-.galery img {
-    display: block;
+.gallery img {
     width: 100%;
+    height: auto;
+    object-fit: cover;
+    padding: 5px;
+    margin: 5px;
+}
+
+.information {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+
+    .header h1,
+    .gallery .header h2 {
+        font-size: 24px;
+    }
+
+    .label {
+        font-size: 14px;
+    }
+
+    #table {
+        font-size: 12px;
+        padding: 5px 5px;
+        margin: 20px 0;
+    }
+
+    #map {
+        width: 100%;
+        height: 200px;
+    }
+
+    .gallery img {
+        max-width: 100%;
+        padding: 10px;
+        margin: 10px auto;
+    }
+ .container .image, .container .label {
+        display: flex;
+        flex-direction: column;
+    }
 }

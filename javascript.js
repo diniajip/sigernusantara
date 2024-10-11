@@ -17,7 +17,6 @@ Papa.parse("../identifikasi.csv", {
                 // Make Marker Function
                 var marker = L.marker([lat, lng]).addTo(map);
                 marker.on('click', function() {
-                    console.log('Marker clicked');
                     var table = document.getElementById('table');
                     table.innerHTML = ''; // Clear previous table content
 
@@ -44,18 +43,23 @@ Papa.parse("../identifikasi.csv", {
 
                     table.appendChild(tr);
 
-                    // Update Galery with Image and Caption
-                    var galleryHeader = document.querySelector(".galery .header h2");
-                    var galleryParagraph1 = document.querySelector(".galery .header p1");
-                    var galleryParagraph2 = document.querySelector(".galery .header p2");
-                    var galleryImage = document.querySelector(".galery img");
+                    // Update Gallery with Image and Caption
+                    var galleryHeader = document.querySelector(".gallery .header h2");
+                    var galleryParagraph1 = document.querySelector(".gallery .label .p1");
+                    var galleryParagraph2 = document.querySelector(".gallery .label .p2");
+                    var galleryImage = document.querySelector(".gallery img");
 
                     // Set the text content and image source
                     galleryHeader.textContent = row["Nama Budaya"];
                     galleryParagraph1.textContent = row["Warisan Budaya"];
                     galleryParagraph2.textContent = row["Konsep IPA"];
-                    galleryImage.src = row["Gambar"];
-                    galleryImage.alt = "images";
+                    if (row["Gambar"]) {
+                        galleryImage.src = row["Gambar"];
+                        galleryImage.alt = "images";
+                        galleryImage.style.border = "1px solid black";
+                    } else {
+                        galleryImage.style.border = "none";
+                    };
                 });
             }
         });
